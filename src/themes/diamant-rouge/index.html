@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le Diamant Rouge — Foodscape</title>
+  <meta name="description" content="Escape game culinaire : le vol du diamant rouge de Paris. Déverrouillez apéritif, dîner et dessert aux chandelles." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Sora:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a href="../../reservation/index.html">Foodscape</a>
+    <a href="#services">Les trois cadenas</a>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Le Diamant Rouge">
+      <div class="hero__media">
+        <img src="assets/hero.jpg" alt="Dîner aux chandelles, masques et cristal dans un salon parisien" />
+      </div>
+      <div class="hero__veil" aria-hidden="true"></div>
+      <div class="hero__content">
+        <p class="brand-line">Foodscape · Thème</p>
+        <h1 class="hero__title">Le Diamant Rouge</h1>
+        <p class="hero__lead">Un bal masqué. Un joyau disparu. Ce soir, chaque service de votre dîner s’ouvre avec le code que vous aurez trouvé.</p>
+        <a class="hero__cta" href="#recit">Lire le prologue</a>
+      </div>
+    </section>
+
+    <section class="section recit" id="recit">
+      <div class="section__inner">
+        <p class="section__eyebrow">Prologue</p>
+        <h2 class="section__title">Paris, hôtel particulier, 1925</h2>
+        <p class="section__text">Sous les lustres, le tout-Paris danse derrière des masques de soie. À minuit, le diamant rouge — rubis légendaire de la famille Valois — disparaît de son écrin. Personne n’a quitté le bal. Tout le monde est suspect.</p>
+        <p class="section__text">Votre glacière contient trois casiers cadenassés. Les QR codes dispersés dans le jeu mènent ici : des indices, jamais le code entier. Observez, croisez, déduisez — puis goûtez.</p>
+      </div>
+    </section>
+
+    <section class="section section--wide" id="services">
+      <div class="section__inner">
+        <p class="section__eyebrow">Le soirée</p>
+        <h2 class="section__title">Trois portes à ouvrir</h2>
+        <p class="section__text">Chaque casier libère un service du dîner aux chandelles. Les pages d’indices ci-dessous sont destinées aux QR codes du kit — ne les ouvrez qu’au moment indiqué.</p>
+
+        <div class="services">
+          <article class="service">
+            <p class="service__course">Casier I · Apéritif</p>
+            <h3>Le Masque</h3>
+            <p>Qui portait le masque cramoisi ? L’apéritif attend derrière le premier cadenas.</p>
+          </article>
+          <article class="service">
+            <p class="service__course">Casier II · Dîner</p>
+            <h3>La Chambre</h3>
+            <p>Une clé d’hôtel, une chambre numérotée. Le plat chaud ne sort qu’après le second code.</p>
+          </article>
+          <article class="service">
+            <p class="service__course">Casier III · Dessert</p>
+            <h3>L’Écrin</h3>
+            <p>Le joyau a un dernier secret. Le dessert — et la vérité — sont dans le dernier casier.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <strong>Le Diamant Rouge</strong>
+    <p>Indices réservés aux QR codes du kit Foodscape</p>
+  </footer>
+
+  <script>
+    (() => {
+      const items = document.querySelectorAll(".service");
+      if (!items.length || !("IntersectionObserver" in window)) {
+        items.forEach((el) => el.classList.add("is-visible"));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("is-visible");
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      items.forEach((el) => io.observe(el));
+    })();
+  </script>
+</body>
+</html>

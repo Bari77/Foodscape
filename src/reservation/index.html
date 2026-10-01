@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foodscape — Réserver une soirée</title>
+  <meta name="description" content="Foodscape : réservez un dîner escape game livré dans une glacière cadenassée. Déverrouillez l'apéritif, le dîner et le dessert en résolvant les énigmes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Sora:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <a href="#rituel">Le rituel</a>
+    <a href="#reserver">Réserver</a>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Accueil Foodscape">
+      <div class="hero__media">
+        <img src="assets/hero.jpg" alt="Glacière cadenassée éclairée à la bougie, masques et gemme rubis" />
+      </div>
+      <div class="hero__veil" aria-hidden="true"></div>
+      <div class="hero__content">
+        <h1 class="brand">Food<span>scape</span></h1>
+        <p class="hero__headline">Le dîner arrive. Les codes, à vous de les trouver.</p>
+        <p class="hero__lead">Une glacière cadenassée, trois plats, trois énigmes. Déverrouillez l’apéritif, le dîner, puis le dessert.</p>
+        <a class="hero__cta" href="#reserver">Réserver une soirée</a>
+      </div>
+    </section>
+
+    <section class="section rituel" id="rituel">
+      <div class="section__inner">
+        <p class="section__eyebrow">Comment ça marche</p>
+        <h2 class="section__title">Trois cadenas. Une soirée.</h2>
+        <p class="section__text">Foodscape livre chez vous un dîner thématique enfermé dans une glacière. Chaque compartiment s’ouvre uniquement avec le code découvert dans les énigmes — et les indices cachés derrière les QR codes.</p>
+
+        <div class="steps">
+          <article class="step">
+            <h3>La glacière</h3>
+            <p>Livrée à votre porte, scellée. À l’intérieur : apéritif, plat et dessert — chacun derrière son propre cadenas.</p>
+          </article>
+          <article class="step">
+            <h3>Les énigmes</h3>
+            <p>Indices, objets et QR codes mènent aux codes. Scannez, fouillez, déduisez. Chaque réussite libère le service suivant.</p>
+          </article>
+          <article class="step">
+            <h3>Le banquet</h3>
+            <p>Apéro, dîner, dessert — à votre rythme. Le menu suit le récit. La soirée se joue entre vous, à table.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="theme" id="theme" aria-labelledby="theme-title">
+      <div class="theme__media">
+        <img src="../themes/diamant-rouge/assets/hero.jpg" alt="Table aux chandelles, masques vénitiens, ambiance mondaine parisienne" />
+      </div>
+      <div class="theme__veil" aria-hidden="true"></div>
+      <div class="theme__content">
+        <p class="section__eyebrow">Thème du moment</p>
+        <h2 class="section__title" id="theme-title">Le Diamant Rouge</h2>
+        <p class="section__text">Paris, bal masqué. Le diamant rouge a disparu. Ce soir, un dîner aux chandelles vous attend — masques, champagne, et trois codes à retrouver pour ouvrir chaque service.</p>
+        <a class="theme__link" href="../themes/diamant-rouge/index.html">Entrer dans l’histoire →</a>
+      </div>
+    </section>
+
+    <section class="section resa" id="reserver">
+      <div class="section__inner resa__layout">
+        <div>
+          <p class="section__eyebrow">Réservation</p>
+          <h2 class="section__title">Choisissez votre soirée</h2>
+          <p class="section__text">Indiquez la date, le nombre de convives et le thème. Nous confirmons sous 24 h et organisons la livraison de la glacière.</p>
+        </div>
+
+        <form class="form" id="resa-form" novalidate>
+          <div class="form__fields">
+            <div class="form__row">
+              <div class="field">
+                <label for="name">Nom</label>
+                <input id="name" name="name" type="text" autocomplete="name" required />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+              </div>
+            </div>
+
+            <div class="form__row">
+              <div class="field">
+                <label for="date">Date souhaitée</label>
+                <input id="date" name="date" type="date" required />
+              </div>
+              <div class="field">
+                <label for="guests">Convives</label>
+                <select id="guests" name="guests" required>
+                  <option value="" disabled selected>Choisir</option>
+                  <option value="2">2 personnes</option>
+                  <option value="4">4 personnes</option>
+                  <option value="6">6 personnes</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="theme-select">Thème</label>
+              <select id="theme-select" name="theme" required>
+                <option value="diamant-rouge" selected>Le Diamant Rouge — dîner aux chandelles</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="address">Adresse de livraison</label>
+              <textarea id="address" name="address" required placeholder="Rue, code, étage…"></textarea>
+            </div>
+
+            <div class="field">
+              <label for="notes">Précisions (allergies, horaire…)</label>
+              <textarea id="notes" name="notes"></textarea>
+            </div>
+
+            <button class="form__submit" type="submit">Envoyer la demande</button>
+          </div>
+
+          <div class="form__success" id="resa-success" role="status" aria-live="polite">
+            <h3>Demande reçue</h3>
+            <p>Merci. Nous vous recontactons sous 24 h pour confirmer la livraison de votre glacière Foodscape.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__brand">Foodscape</p>
+    <p>Escape game culinaire — livré, cadenassé, à table.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
